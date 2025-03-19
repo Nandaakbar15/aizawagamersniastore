@@ -1,0 +1,51 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mysql"
+    url = env("DATABASE_URL")
+}
+
+enum Role {
+    admin
+    pelanggan
+}
+
+model User {
+    id Int @id @default(autoincrement())
+    username String
+    email String @unique
+    password String
+    role Role @default(pelanggan)   
+}
+
+model Games {
+    id_game Int @id @default(autoincrement())
+    nama_game String
+    tgl_rilis DateTime
+    publisher String
+    harga Int
+    deskripsi String
+    platform String
+    stok Int
+    gambar String
+}
+
+model Konsol {
+    id_konsol Int @id @default(autoincrement())
+    nama_konsol String
+    pengembang String
+    harga Int
+    stok Int
+    gambar String
+}
+
+model Aksesoris {
+    id_aksesoris Int @id @default(autoincrement())
+    nama_aksesoris String
+    category String
+    deskripsi String
+    stok Int
+    gambar String
+}
