@@ -1,10 +1,14 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+const cors = require("cors");
 const router = require("./routes/route");
 
 // read the json code or data
 app.use(express.json());
+
+// use middleware cors
+app.use(cors());
 
 app.use(express.urlencoded({ extended: true })); 
 
