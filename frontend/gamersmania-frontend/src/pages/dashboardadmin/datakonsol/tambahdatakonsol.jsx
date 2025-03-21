@@ -82,7 +82,11 @@ export default function FormTambahKonsol() {
                         <label htmlFor="gambar" className="form-label">Gambar</label>
                         <input type="file" className="form-control" id="gambar" name="gambar" onChange={(e) => setGambar(e.target.files[0])}/>
                     </div>
-                    <BtnTambah/> <Link to="/admin/datakonsol"><BtnKembali/></Link>
+                    <div className="mb-3">
+                        <BtnTambah/> 
+                    </div>
+                    
+                    <Link to="/admin/datakonsol"><BtnKembali/></Link>
                     </form>
                 </div>
             </div>

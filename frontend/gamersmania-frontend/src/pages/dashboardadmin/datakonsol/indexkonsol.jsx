@@ -2,10 +2,13 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../../../components/Sidebar";
 import axios from 'axios';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function DataKonsolAdmin() {
     const [konsols, setKonsol] = useState([]);
+    const [message, setMessage] = useState("");
+    const [alert, setAlertType] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         getAllKonsol()
@@ -16,11 +19,23 @@ export default function DataKonsolAdmin() {
         setKonsol(Object.values(response.data.data));
     }
 
+    const deleteKonsol = async(id_konsol) => {
+        const response = await axios.delete(`http://localhost:3000/api/admin/deleteKonsol/${id_konsol}`);
+        setAlertType("success");
+        setMessage(response.data.message);
+        navigate("/admin/datakonsol");
+    }
+
     return (
         <>
             <div className="wrapper">
                 <Sidebar/>
                 <div className="container mt-5">
+                    {message && (
+                        <div className={`alert alert-${alert}`} role="alert">
+                            {message}
+                        </div>
+                    )}
                     <h1>Data Konsol</h1>
 
                     <h2><Link to={`/tambahdatakonsol`} className="btn btn-primary">Tambah Data konsol</Link></h2>
@@ -47,7 +62,7 @@ export default function DataKonsolAdmin() {
                                 <Link to={`/ubahdatakonsol/${konsol.id_konsol}`} className="btn btn-primary">Edit</Link>
                             </td>
                             <td>
-                                <button className="btn btn-danger">Hapus</button>
+                                <button className="btn btn-danger" onClick={() => deleteKonsol(konsol.id_konsol)}>Hapus</button>
                             </td>
                         </tr>
                         ))}

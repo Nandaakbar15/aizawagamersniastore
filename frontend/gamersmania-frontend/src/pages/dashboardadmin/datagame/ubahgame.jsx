@@ -62,9 +62,9 @@ export default function FormUbahGame() {
             }
     
             // Debugging: Cek isi formData
-            for (let pair of formData.entries()) {
-                console.log(pair[0] + ": " + pair[1]);
-            }
+            // for (let pair of formData.entries()) {
+            //     console.log(pair[0] + ": " + pair[1]);
+            // }
     
             await axios.put(`http://localhost:3000/api/admin/ubahdatagame/${id_game}`, formData, {
                 headers: {

@@ -18,28 +18,30 @@ export default function Sidebar() {
                     >
                     <i className="fas fa-home"></i>
                     <p>Dashboard</p>
-                    <span className="caret"></span>
                     </a>
                 </li>
                 <li className="nav-item">
                     <Link to="/admin/datauser">
                         <i className="fas fa-th-list"></i>
                         <p>Data User</p>
-                        <span className="caret"></span>
                     </Link>
                 </li>
                 <li className="nav-item">
                     <Link to="/admin/datagame">
                         <i className="fas fa-th-list"></i>
                         <p>Data Game</p>
-                        <span className="caret"></span>
                     </Link>
                 </li>
                 <li className="nav-item">
                     <Link to="/admin/datakonsol">
                         <i className="fas fa-th-list"></i>
                         <p>Data Konsol</p>
-                        <span className="caret"></span>
+                    </Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/admin/dataaksesoris">
+                        <i className="fas fa-th-list"></i>
+                        <p>Data Aksesoris</p>
                     </Link>
                 </li>
                 </ul>

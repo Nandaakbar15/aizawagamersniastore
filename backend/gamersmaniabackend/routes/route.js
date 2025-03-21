@@ -45,7 +45,7 @@ router.get("/api/admin/datakonsol/:id_konsol", getAllKonsolById);
 
 router.post("/api/admin/tambahdatakonsol", upload.single("gambar"), validateKonsol, addDataKonsol);
 
-router.put("/api/admin/ubahdataKonsol/:id_konsol", validateKonsol, upload.single("gambar"), updateKonsol);
+router.put("/api/admin/ubahdataKonsol/:id_konsol", upload.single("gambar"), updateKonsol);
 
 router.delete("/api/admin/deleteKonsol/:id_konsol", deleteKonsol);
 
