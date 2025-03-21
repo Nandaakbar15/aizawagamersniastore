@@ -6,7 +6,7 @@ const {getAllKonsol, addDataKonsol, getAllKonsolById, updateKonsol, deleteKonsol
 const {getAllAksesoris, getAllAksesorisById, addAksesoris, updateAksesoris, deleteAksesoris} = require("../controller/AksesorisController");
 
 // middleware
-const {validateRegister, validateGame, validateKonsol, validateAksesoris} = require("../middleware/validationmiddleware");
+const {validateRegister, validateCreateGame, validateKonsol, validateAksesoris, validateUpdateGame} = require("../middleware/validationmiddleware");
 const {authMiddleware} = require("../middleware/auth");
 
 
@@ -30,9 +30,9 @@ router.post("/api/register", validateRegister, register);
 // route untuk admin
 router.get("/api/admin/datagame", getAllGame);
 
-router.post("/api/admin/tambahdatagame", upload.single("gambar"), validateGame, addDataGame);
+router.post("/api/admin/tambahdatagame", upload.single("gambar"), addDataGame);
 
-router.put("/api/admin/ubahdatagame/:id_game", validateGame, upload.single("gambar"), updateGame);
+router.put("/api/admin/ubahdatagame/:id_game", upload.single("gambar"), updateGame);
 
 router.get("/api/admin/datagame/:id_game", getAllGameById);
 

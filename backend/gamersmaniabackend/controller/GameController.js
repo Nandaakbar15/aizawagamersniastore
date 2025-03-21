@@ -84,12 +84,12 @@ exports.updateGame = async(req, res) => {
     try {
         const id_game = parseInt(req.params.id_game);
 
-        if(!id_game) {
-            res.status(400).json({
-                statusCode: 400,
-                message: `The ID game with  ${id_game} is not found!`
-            });
-        }
+        // if(!id_game) {
+        //     res.status(400).json({
+        //         statusCode: 400,
+        //         message: `The ID game with  ${id_game} is not found!`
+        //     });
+        // }
 
         const {nama_game, tgl_rilis, publisher, harga, deskripsi, platform, stok} = req.body;
         const parsedHarga = parseInt(harga);

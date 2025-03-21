@@ -47,15 +47,14 @@ exports.validateLogin = [
     }
 ];
 
-exports.validateGame = [
-    body("nama_game").notEmpty().withMessage("Field Nama Game harus di isi!").isString().withMessage("Field Nama Game harus di isi!"),
-    body("tgl_rilis").notEmpty().withMessage("Field Tanggal Rilis harus di isi!").isDate().withMessage("Field Tanggal Rilis harus berupa tanggal!"),
-    body("publisher").notEmpty().withMessage("Field Publisher harus di isi!").isString().withMessage("Field Publisher harus berupa string!"),
-    body("harga").notEmpty().withMessage("Field Harga harus di isi!").isInt().withMessage("Field Harga harus berupa angka atau Integer!"),
-    body("deskripsi").notEmpty().withMessage("Field Deskripsi harus di isi!").isString().withMessage("Field Deskripsi harus berupa String!"),
-    body("platform").notEmpty().withMessage("Field Platform harus di isi!").isString().withMessage("Field Platform harus berupa String!"),
-    body("stok").notEmpty().withMessage("Field Stok harus di isi!").isString().withMessage("Field Stok harus berupa angka atau Integer!"),
-
+exports.validateCreateGame = [
+    body("nama_game").notEmpty().withMessage("Field Nama Game harus di isi!"),
+    body("tgl_rilis").notEmpty().withMessage("Field Tanggal Rilis harus di isi!").isDate(),
+    body("publisher").notEmpty().withMessage("Field Publisher harus di isi!"),
+    body("harga").notEmpty().withMessage("Field Harga harus di isi!").isInt(),
+    body("deskripsi").notEmpty().withMessage("Field Deskripsi harus di isi!"),
+    body("platform").notEmpty().withMessage("Field Platform harus di isi!"),
+    body("stok").notEmpty().withMessage("Field Stok harus di isi!").isInt(),
     
     (req, res, next) => {
         const errors = validationResult(req);
@@ -76,6 +75,31 @@ exports.validateGame = [
         next();
     }
 ];
+
+exports.validateUpdateGame = [
+    body("nama_game").notEmpty().withMessage("Field Nama Game harus di isi!"),
+    body("tgl_rilis").notEmpty().withMessage("Field Tanggal Rilis harus di isi!").isDate(),
+    body("publisher").notEmpty().withMessage("Field Publisher harus di isi!"),
+    body("harga").notEmpty().withMessage("Field Harga harus di isi!").isInt(),
+    body("deskripsi").notEmpty().withMessage("Field Deskripsi harus di isi!"),
+    body("platform").notEmpty().withMessage("Field Platform harus di isi!"),
+    body("stok").notEmpty().withMessage("Field Stok harus di isi!").isInt(),
+
+    (req, res, next) => {
+        const errors = validationResult(req);
+
+        // Gambar tidak wajib saat update, jadi tidak ada pengecekan req.file
+
+        if (!errors.isEmpty()) {
+            return res.status(400).json({
+                statusCode: 400,
+                errors: errors.array()
+            });
+        }
+        next();
+    }
+];
+
 
 exports.validateKonsol = [
     body("nama_konsol").notEmpty().withMessage("Field Nama Konsol harus di isi").isString().withMessage("Field Nama Konsol harus berupa String!"),
