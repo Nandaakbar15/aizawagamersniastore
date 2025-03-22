@@ -9,6 +9,7 @@ import FormTambahKonsol from './pages/dashboardadmin/datakonsol/tambahdatakonsol
 import FormUbahDataKonsol from './pages/dashboardadmin/datakonsol/ubahdatakonsol';
 import DataAksesorisAdmin from './pages/dashboardadmin/dataaksesoris/indexaksesoris';
 import FormTambahAksesoris from './pages/dashboardadmin/dataaksesoris/tambahaksesoris';
+import FormUbahAksesoris from './pages/dashboardadmin/dataaksesoris/ubahdata_aksesoris';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/tambah_aksesoris" element={<FormTambahAksesoris/>}></Route>
         <Route path="/ubahdatagame/:id_game" element={<FormUbahGame/>}></Route>
         <Route path="/ubahdatakonsol/:id_konsol" element={<FormUbahDataKonsol/>}></Route>
+        <Route path="/ubahdataaksesoris/:id_aksesoris" element={<FormUbahAksesoris/>}></Route>
       </Routes>
     </BrowserRouter>
   )

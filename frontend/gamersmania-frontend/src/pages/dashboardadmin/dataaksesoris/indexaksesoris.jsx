@@ -25,7 +25,11 @@ export default function DataAksesorisAdmin() {
                 <Sidebar/>
                 <div className="container mt-5">
                     <h1>Data Aksesoris</h1>
-
+                    {message && (
+                        <div className={`alert alert-${alert}`} role="alert">
+                            {message}
+                        </div>
+                    )}
                     <h2><Link to="/tambah_aksesoris" className="btn btn-primary">Tambah Aksesoris</Link></h2>
 
                     <table className="table">
