@@ -15,6 +15,7 @@ export default function FormUbahGame() {
     const [platform, setPlatform] = useState("");
     const [stok, setStok] = useState("");
     const [gambar, setGambar] = useState(null);
+    const [preview, setPreview] = useState(null);
     const navigate = useNavigate();
     const [message, setMessage] = useState("");
     const [alert, setAlertType] = useState("");
@@ -33,6 +34,7 @@ export default function FormUbahGame() {
                 setPlatform(platform);
                 setStok(stok);
                 setGambar(null); // Reset gambar agar user harus upload ulang
+                setPreview(gambar ? `http://localhost:3000/images/${gambar}` : null);
 
                 setAlertType("success");
                 setMessage("Data berhasil dimuat!");
@@ -45,6 +47,12 @@ export default function FormUbahGame() {
 
         getAllGameById();
     }, [id_game]);
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setGambar(file);
+        setPreview(URL.createObjectURL(file)); // Membuat preview dari file yang dipilih
+    };
 
     const updateGame = async (e) => {
         e.preventDefault();
@@ -123,7 +131,12 @@ export default function FormUbahGame() {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="gambar" className="form-label">Gambar</label>
-                    <input type="file" className="form-control" id="gambar" name="gambar" onChange={(e) => setGambar(e.target.files[0])} />
+                    {preview && (
+                        <div>
+                            <img src={preview} alt="" width="100"/>
+                            <input type="file" className="form-control" id="gambar" name="gambar" onChange={handleFileChange} />
+                        </div>
+                    )}
                 </div>
                 <BtnUbah />
             </form>

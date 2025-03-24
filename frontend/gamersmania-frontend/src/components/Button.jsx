@@ -41,3 +41,21 @@ export function BtnDelete() {
         </div>
     );
 }
+
+export function BtnLogin()
+{
+    return (
+        <div className="button-login">
+            <button className="btn btn-success">Login</button>
+        </div>
+    );
+}
+
+export function BtnRegister()
+{
+    return (
+        <div className="button-register">
+            <button className="btn btn-primary">Register</button>
+        </div>
+    );
+}

@@ -14,6 +14,7 @@ export default function FormUbahDataKonsol() {
     const [gambar, setGambar] = useState(null);
     const [alert, setAlertType] = useState("");
     const [message, setMessage] = useState("");
+    const [preview, setPreview] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -27,6 +28,7 @@ export default function FormUbahDataKonsol() {
                 setPengembang(pengembang);
                 setStock(stok);
                 setGambar(null); // Reset gambar agar user harus upload ulang
+                setPreview(gambar ? `http://localhost:3000/images/${gambar}` : null);
 
                 // setAlertType("success");
                 // setMessage("Data berhasil dimuat!");
@@ -39,6 +41,12 @@ export default function FormUbahDataKonsol() {
 
         getAllKonsolById();
     }, [id_konsol]);
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setGambar(file);
+        setPreview(URL.createObjectURL(file)); // Membuat preview dari file yang dipilih
+    };
 
     const updateKonsol = async(e) => {
         try {
@@ -96,7 +104,12 @@ export default function FormUbahDataKonsol() {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="gambar" className="form-label">Gambar</label>
-                        <input type="file" className="form-control" id="gambar" name='gambar' onChange={(e) => setGambar(e.target.files[0])}/>
+                        {preview && (
+                            <div>
+                                <img src={preview} alt="" style={{width: "150px",height: "150px",objectFit: "cover", display: "block", marginBottom: "10px",}}/>
+                                <input type="file" className='form-control' id='gambar' name='gambar' onChange={handleFileChange}/>
+                            </div>
+                        )}
                     </div>
                     <div className="mb-3">
                         <BtnUbah/>

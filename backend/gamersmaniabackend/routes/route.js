@@ -1,9 +1,14 @@
 const express = require("express");
 const router = express();
 const upload = require("../config/upload");
+
+// controller untuk admin atau master data
 const {getAllGame, addDataGame, getAllGameById, updateGame, deleteGame} = require("../controller/GameController");
 const {getAllKonsol, addDataKonsol, getAllKonsolById, updateKonsol, deleteKonsol} = require("../controller/KonsolController");
 const {getAllAksesoris, getAllAksesorisById, addAksesoris, updateAksesoris, deleteAksesoris} = require("../controller/AksesorisController");
+
+// controller untuk pelanggan (non-admin)
+const {listgame, listkonsol, listaksesoris, detailGames, detailKonsol, detailAksesoris} = require("../controller/PelangganController"); 
 
 // middleware
 const {validateRegister, validateCreateGame, validateKonsol, validateAksesoris, validateUpdateGame} = require("../middleware/validationmiddleware");
@@ -59,6 +64,19 @@ router.post("/api/admin/tambah_aksesoris", upload.single("gambar"), addAksesoris
 router.put("/api/admin/update_aksesoris/:id_aksesoris", upload.single("gambar"), validateAksesoris, updateAksesoris);
 
 router.delete("/api/admin/deleteAksesoris/:id_aksesoris", deleteAksesoris);
+
+// route untuk pelanggan
+router.get("/api/pelanggan/games", listgame);
+
+router.get("/api/pelanggan/games/detailgame/:id_game", detailGames);
+
+router.get("/api/pelanggan/konsol", listkonsol);
+
+router.get("/api/pelanggan/konsol/detailKonsol/:id_konsol", detailKonsol);
+
+router.get("/api/pelanggan/aksesoris", listaksesoris);
+
+router.get("/api/pelanggan/aksesoris/detailAksesoris/:id_aksesoris", detailAksesoris);
 
 
 module.exports = router;
