@@ -2,9 +2,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 
 export default function CardAksesories() {
-    const [aksesoris, setAksesoris] = useState("");
+    const [aksesoris, setAksesoris] = useState([]);
 
     useEffect(() => {
         getAksesoris();
@@ -20,18 +21,25 @@ export default function CardAksesories() {
     }
 
     return (
-        <div className="card" style="width: 18rem;">
-        {aksesoris.map((data) => (
-            <div key={data.id_aksesoris}>
-                <img className="card-img-top" src={`http://localhost:3000/images/${data.gambar}`} alt="Card image cap" />
-                <div className="card-body">
-                    <h5 className="card-title">{data.nama_aksesoris}</h5>
-                    <p className="card-text">{data.harga}</p>
-                    <p className="card-text">{data.stok}</p>
-                    <Link to={`/detailaksesoris/${data.id_aksesoris}`} className='btn btn-primary'>Detail Aksesoris</Link>
+        <>
+            <div className="container mt-5">
+                <div className="row">
+                    {aksesoris.map((data) => (
+                        <div className='col-12 col-sm-6 col-md-4 col-lg-3 mb-4' key={data.id_aksesoris}>
+                            <div className="card shadow-sm">
+                                <Link to={`/pelanggan/aksesoris/detailAksesoris/${data.id_aksesoris}`}><img src={`http://localhost:3000/images/${data.gambar}`}  className="img-fluid card-img-top" alt={data.nama_aksesoris} /></Link>
+                                <div className="card-body text-center">
+                                    <h6 className="card-title">{data.nama_aksesoris}</h6>
+                                    <p className="text-muted">{data.category}</p>
+                                    <div className="d-flex justify-content-between">
+                                        <small>Stok : {data.stok}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
-        ))}
-        </div>
+        </>
     );
 }

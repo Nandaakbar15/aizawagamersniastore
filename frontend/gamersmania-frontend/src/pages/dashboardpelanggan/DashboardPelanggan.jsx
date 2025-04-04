@@ -10,6 +10,7 @@ export default function DashboardPelanggan() {
                 <Navbar/>
                 <Banner/>
                 <h1>Dashboard Pelanggan</h1>
+                <p>Apakah kamu gamer? Nah, website ini adalah tempat yang pas buat kamu yang lagi cari game, konsol sama aksesoris!</p>
             </div>
         </div>
     );

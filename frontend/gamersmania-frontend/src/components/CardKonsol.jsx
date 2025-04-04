@@ -20,18 +20,26 @@ export default function CardKonsol() {
     }
 
     return (
-        <div className="card" style="width: 18rem;">
-        {konsols.map((konsol) => (
-            <div key={konsol.id_konsol}>
-                <div className="card-body">
-                    <img className="card-img-top" src={`http://localhost:3000/images/${konsol.gambar}`} alt="Card image cap" />
-                    <h5 className="card-title">{konsol.nama_konsol}</h5>
-                    <p className="card-text">{konsol.stok}</p>
-                    <p className="card-text">{konsol.harga}</p>
-                    <Link to={`/detailkonsol/${konsol.id_konsol}`} className='btn btn-primary'>Detail Konsol</Link>
+        <>
+            <div className="container mt-5">
+                <div className="row">
+                    {konsols.map((konsol) => (
+                        <div className='col-12 col-sm-6 col-md-4 col-lg-3 mb-4' key={konsol.id_konsol}>
+                            <div className="card shadow-sm" style={{ maxWidth: "18rem" }}>
+                            <div className="card-body text-center">
+                                <Link to={`/pelanggan/konsol/detailkonsol/${konsol.id_konsol}`}><img src={`http://localhost:3000/images/${konsol.gambar}`} className="img-fluid card-img-top" alt={konsol.nama_konsol} /></Link>
+                                <h6 className="card-title">{konsol.nama_konsol}</h6>
+                                <p className="text-muted">{konsol.pengembang}</p>
+                                <div className="d-flex justify-content-between">
+                                    <small>Stok : {konsol.stok}</small>
+                                    <small>Rp. {konsol.harga}</small>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
-        ))}
-        </div>
+        </>
     );
 }

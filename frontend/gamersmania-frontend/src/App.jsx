@@ -13,6 +13,12 @@ import FormUbahAksesoris from './pages/dashboardadmin/dataaksesoris/ubahdata_aks
 import LoginPage from './pages/Login';
 import DashboardPelanggan from './pages/dashboardpelanggan/DashboardPelanggan';
 import RegisterPage from './pages/Register';
+import ListGame from './pages/dashboardpelanggan/ListGame';
+import ListAksesoris from './pages/dashboardpelanggan/ListAksesoris';
+import ListKonsol from './pages/dashboardpelanggan/ListKonsol';
+import DetailGames from './pages/dashboardpelanggan/DetailGames';
+import DetailAksesoris from './pages/dashboardpelanggan/DetailAksesoris';
+import DetailKonsol from './pages/dashboardpelanggan/DetailKonsol';
 
 function App() {
   return (
@@ -32,6 +38,12 @@ function App() {
         <Route path="/ubahdatakonsol/:id_konsol" element={<FormUbahDataKonsol/>}></Route>
         <Route path="/ubahdataaksesoris/:id_aksesoris" element={<FormUbahAksesoris/>}></Route>
         <Route path="/pelanggan/dashboardpelanggan" element={<DashboardPelanggan/>}></Route>
+        <Route path="/pelanggan/listgame" element={<ListGame/>}></Route>
+        <Route path="/pelanggan/listaksesoris" element={<ListAksesoris/>}></Route>
+        <Route path="/pelanggan/listkonsol" element={<ListKonsol/>}></Route>
+        <Route path="/pelanggan/games/detailgame/:id_game" element={<DetailGames/>}></Route>
+        <Route path="/pelanggan/konsol/detailkonsol/:id_konsol" element={<DetailKonsol/>}></Route>
+        <Route path="/pelanggan/aksesoris/detailAksesoris/:id_aksesoris" element={<DetailAksesoris/>}></Route>
       </Routes>
     </BrowserRouter>
   )
