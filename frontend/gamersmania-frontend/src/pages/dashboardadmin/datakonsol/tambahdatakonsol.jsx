@@ -4,6 +4,7 @@ import axios from 'axios';
 import { BtnKembali, BtnTambah } from '../../../components/Button';
 import { Link, useNavigate } from 'react-router-dom';
 import Sidebar from '../../../components/Sidebar';
+import PageTitle from '../../../components/PageTitle';
 
 export default function FormTambahKonsol() {
     const [namaKonsol, setNamaKonsol] = useState("");
@@ -52,6 +53,7 @@ export default function FormTambahKonsol() {
 
     return (
         <>
+            <PageTitle title="Form Tambah Data Konsol Admin"/>
             <div className="wrapper">
                 <Sidebar/>
                 <div className="container mt-5">

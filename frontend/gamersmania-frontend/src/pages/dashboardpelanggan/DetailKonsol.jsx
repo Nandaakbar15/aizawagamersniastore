@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import { BtnKembali } from "../../components/Button";
+import PageTitle from "../../components/PageTitle";
 
 export default function DetailKonsol() {
     const {id_konsol} = useParams();
@@ -35,6 +36,7 @@ export default function DetailKonsol() {
 
     return (
         <>
+            <PageTitle title="Detail Konsol"/>
             <div className="container mt-5">
                 <div className="row">
                     <Navbar/>

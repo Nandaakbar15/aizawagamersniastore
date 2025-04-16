@@ -7,8 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 import { BtnTambah } from "../../../components/Button"; 
 import Sidebar from "../../../components/Sidebar";
-
-
+import PageTitle from "../../../components/PageTitle";
 
 export default function FormTambahGame() {
     const [namaGame, setNamaGame] = useState("");
@@ -20,7 +19,7 @@ export default function FormTambahGame() {
     const [gambar, setGambar] = useState(null);
     const [stok, setStok] = useState("");
     const [alert, setAlertType] = useState("");
-    const [message, setMessage] = useState("primary");
+    const [message, setMessage] = useState("");
     const navigate = useNavigate();
 
     const addDataGame = async (e) => {
@@ -69,6 +68,7 @@ export default function FormTambahGame() {
 
     return (
         <>
+        <PageTitle title="Form Tambah Data Game Admin"/>
         <div className="wrapper">
             <Sidebar/>
             <div className="container mt-5">

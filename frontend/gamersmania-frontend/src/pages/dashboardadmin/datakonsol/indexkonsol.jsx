@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Sidebar from "../../../components/Sidebar";
 import axios from 'axios';
 import { Link, useNavigate } from "react-router-dom";
+import PageTitle from "../../../components/PageTitle";
 
 export default function DataKonsolAdmin() {
     const [konsols, setKonsol] = useState([]);
@@ -28,6 +29,7 @@ export default function DataKonsolAdmin() {
 
     return (
         <>
+            <PageTitle title="Data Konsol Admin"/>
             <div className="wrapper">
                 <Sidebar/>
                 <div className="container mt-5">

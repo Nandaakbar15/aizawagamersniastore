@@ -4,6 +4,7 @@ import { BtnKembali, BtnUbah } from '../../../components/Button';
 import axios from 'axios';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Sidebar from '../../../components/Sidebar';
+import PageTitle from '../../../components/PageTitle';
 
 export default function FormUbahDataKonsol() {
     const {id_konsol} = useParams();
@@ -76,6 +77,7 @@ export default function FormUbahDataKonsol() {
  
     return (
         <>
+            <PageTitle title="Form Ubah Data Konsol"/>
             <div className="wrapper">
                 <Sidebar/>
                 <div className="container">

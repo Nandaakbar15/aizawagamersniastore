@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BtnLogin } from '../components/Button';
 import { Link, useNavigate } from 'react-router-dom';
+import PageTitle from '../components/PageTitle';
 
 
 export default function LoginPage() {
@@ -42,6 +43,7 @@ export default function LoginPage() {
 
     return (
         <>
+            <PageTitle title="Login"/>
             <div className="container mt-5">
                 <div className="row">
                     <div className="card">

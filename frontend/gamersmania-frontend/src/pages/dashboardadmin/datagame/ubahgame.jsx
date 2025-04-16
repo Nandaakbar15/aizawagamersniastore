@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { BtnUbah } from "../../../components/Button";
+import PageTitle from "../../../components/PageTitle";
 
 export default function FormUbahGame() {
     const { id_game } = useParams();
@@ -91,6 +92,8 @@ export default function FormUbahGame() {
     };
 
     return (
+        <>
+        <PageTitle title="Form Ubah Data Game Admin" />
         <div className="container mt-5">
             <h1>Form Ubah Data Game</h1>
 
@@ -133,7 +136,7 @@ export default function FormUbahGame() {
                     <label htmlFor="gambar" className="form-label">Gambar</label>
                     {preview && (
                         <div>
-                            <img src={preview} alt="" width="100"/>
+                            <img src={preview} alt="" width="100" />
                             <input type="file" className="form-control" id="gambar" name="gambar" onChange={handleFileChange} />
                         </div>
                     )}
@@ -141,5 +144,6 @@ export default function FormUbahGame() {
                 <BtnUbah />
             </form>
         </div>
+        </>
     );
 }

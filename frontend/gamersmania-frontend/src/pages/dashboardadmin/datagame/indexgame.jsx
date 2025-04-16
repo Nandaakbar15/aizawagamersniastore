@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { BtnDelete } from "../../../components/Button";
 import Sidebar from "../../../components/Sidebar";
+import PageTitle from "../../../components/PageTitle";
 
 export default function Datagame() {
     const [games, setAllGames] = useState([]);
@@ -24,6 +25,7 @@ export default function Datagame() {
 
     return (
        <>
+        <PageTitle title="Data Game Admin"/>
         <div className="wrapper">
             <Sidebar />
             <div className="container mt-5">

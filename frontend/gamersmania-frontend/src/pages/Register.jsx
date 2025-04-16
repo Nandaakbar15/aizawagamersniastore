@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { BtnRegister } from '../components/Button';
+import PageTitle from '../components/PageTitle';
 
 
 export default function RegisterPage() {
@@ -35,6 +36,7 @@ export default function RegisterPage() {
 
     return (
         <>
+            <PageTitle title="Register"/>
             <div className="container mt-5">
                 <div className="row">
                     <div className="card">

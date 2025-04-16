@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import { BtnKembali } from "../../components/Button";
+import PageTitle from "../../components/PageTitle";
 
 export default function DetailGames() {
     const {id_game} = useParams();
@@ -40,6 +41,7 @@ export default function DetailGames() {
     
     return (
         <>
+            <PageTitle title="Detail Game"/>
             <div className="container mt-5">
                 <div className="row">
                 <Navbar/>

@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import { BtnKembali } from "../../components/Button";
+import PageTitle from "../../components/PageTitle";
 
 export default function DetailAksesoris() {
     const {id_aksesoris} = useParams();
@@ -34,6 +35,7 @@ export default function DetailAksesoris() {
 
     return (
         <>
+            <PageTitle title="Detail Aksesoris"/>
             <div className="container mt-5">
                 <div className="row">
                 <Navbar/>

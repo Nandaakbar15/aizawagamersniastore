@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import Sidebar from "../../components/Sidebar";
+import PageTitle from "../../components/PageTitle";
 
 
 export default function DashboardAdmin() {
     return (
-        <>
+        <> 
+            <PageTitle title="Dashboard Admin"/>
             <div className="wrapper">
                 <Sidebar/>
                 <div className="container mt-5">
