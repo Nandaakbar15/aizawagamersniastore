@@ -2,6 +2,7 @@
 import React from "react";
 import Sidebar from "../../components/Sidebar";
 import PageTitle from "../../components/PageTitle";
+import CardAdmin from "../../components/CardAdmin";
 
 
 export default function DashboardAdmin() {
@@ -16,6 +17,7 @@ export default function DashboardAdmin() {
                             <h3 className="fw-bold mb-3">Selamat Datang Admin</h3>
                         </div>
                     </div>
+                    <CardAdmin/>
                 </div>
             </div>
         </>

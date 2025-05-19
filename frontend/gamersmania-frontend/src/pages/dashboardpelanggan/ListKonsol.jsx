@@ -8,9 +8,9 @@ export default function ListKonsol() {
     return (
         <>
             <PageTitle title="List Konsol"/>
+            <Navbar/>
             <div className="container mt-5">
                 <div className="row">
-                    <Navbar/>
                     <CardKonsol/>
                 </div>
             </div>

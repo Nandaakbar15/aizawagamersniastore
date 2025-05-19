@@ -8,9 +8,9 @@ export default function ListAksesoris() {
     return (
         <>
             <PageTitle title="List Aksesoris"/>
+            <Navbar/>
             <div className="container mt-5">
                 <div className="row">
-                    <Navbar/>
                     <CardAksesories/>
                 </div>
             </div>  

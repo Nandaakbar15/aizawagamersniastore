@@ -8,9 +8,9 @@ export default function DashboardPelanggan() {
     return (
         <>
             <PageTitle title="Dashboard Pelanggan" />
+            <Navbar />
             <div className="container mt-5">
                 <div className="row">
-                    <Navbar />
                     <Banner />
                     <h1>Dashboard Pelanggan</h1>
                     <p>Apakah kamu gamer? Nah, website ini adalah tempat yang pas buat kamu yang lagi cari game, konsol sama aksesoris!</p>

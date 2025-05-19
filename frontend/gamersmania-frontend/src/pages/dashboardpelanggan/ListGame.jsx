@@ -8,9 +8,9 @@ export default function ListGame() {
     return (
         <>
             <PageTitle title="List Games"/>
+            <Navbar/>
             <div className="container mt-5">
                 <div className="row">
-                    <Navbar/>
                     <CardGames/>
                 </div>
             </div>
